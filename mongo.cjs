@@ -215,7 +215,7 @@ const interestSchema= new mongoose.Schema({
     description:String,
 })
 
-const Interest = new mongoose.Schema("Interest", interestSchema)
+const Interest = new mongoose.model("Interest", interestSchema)
 const Village =mongoose.model("Village", villageSchema)
 const Activity = mongoose.model("Activity", activitySchema)
 const Collaborator=mongoose.model("Collaborator", CollaborateSchema)
