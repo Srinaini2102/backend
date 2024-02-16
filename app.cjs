@@ -1,6 +1,6 @@
 const express = require("express")
 const jwt = require("jsonwebtoken");
-const { Village, Activity, collection, GC, Project, Technology, Challenge, Collaborator, ProjectComponent } = require("./mongo.cjs")
+const { Village, Activity, collection, GC, Project, Technology, Challenge, Collaborator, ProjectComponent, Interest } = require("./mongo.cjs")
 const cors = require("cors")
 const app = express()
 app.use(express.json())
@@ -54,6 +54,25 @@ app.post('/api/challenges', async (req, res) => {
     res.status(500).json({ status: 'error', error: 'Failed to save challenge' });
   }
 });
+
+app.post('/api/interest', async (req, res) => {
+  const { title, url, about } = req.body;
+
+  try {
+    const newInterest = new Interest({
+      title,
+      url,
+      about
+    });
+
+    const savedInterest = await newINterest.save();
+    res.json({ status: 'success', Interest: savedInterest });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ status: 'error', error: 'Failed to save Interest' });
+  }
+});
+
 
 
 app.post("/signup", async (req, res) => {

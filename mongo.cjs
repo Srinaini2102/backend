@@ -209,6 +209,13 @@ const activitySchema=new mongoose.Schema({
     folder:String
 })
 
+const interestSchema= new mongoose.Schema({
+    title:String,
+    url:String,
+    description:String,
+})
+
+const Interest = new mongoose.Schema("Interest", interestSchema)
 const Village =mongoose.model("Village", villageSchema)
 const Activity = mongoose.model("Activity", activitySchema)
 const Collaborator=mongoose.model("Collaborator", CollaborateSchema)
@@ -228,5 +235,6 @@ module.exports = {
     Technology: Technology,
     Challenge: Challenge,
     Collaborator: Collaborator,
-    ProjectComponent: ProjectComponent
+    ProjectComponent: ProjectComponent,
+    Interest:Interest,
 };
