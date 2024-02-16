@@ -65,7 +65,7 @@ app.post('/api/interest', async (req, res) => {
       about
     });
 
-    const savedInterest = await newINterest.save();
+    const savedInterest = await newInterest.save();
     res.json({ status: 'success', Interest: savedInterest });
   } catch (error) {
     console.error(error);
